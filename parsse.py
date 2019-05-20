@@ -12,14 +12,25 @@ def run(str_test):
     power_max = temp.get_max_power_equation(expression_minim_tab)
     print(f"Reduced form : {min_equation}")
     print(f"Polynomial degree : {power_max}")
-    temp.solve(expression_minim_tab)
-
 
     print("------- voir si le degre de l'eqaution < 3 si oui resoudre l'equation si non exit---------------")
 
+    if (power_max > 2):
+        print("The Polynomial degree is stricly greater than 2, I can't solve")
+        exit(0)
+    elif power_max == 2:
+        temp.solve_second(expression_minim_tab)
+    elif power_max == 1:
+        temp.solve_first(expression_minim_tab)
+    elif power_max == 0:
+        print("All the X ∈ ℝ are the sollution !!") 
+
+
 
 if __name__ == "__main__":
-    str_test = "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+    #str_test = "8 * X^0 - 6 * X^1 + 0 * X^2 - 5.6 * X^3 = 3 * X^0"
+    #str_test = "5 * X^0 + 4 * X^1 - 9.3 * X^3 = 1 * X^0"
+    str_test = "4X +  5"
     size = len(str_test .split("="))
     if size == 2:
         run(str_test)

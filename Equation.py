@@ -195,8 +195,31 @@ class Equation:
         return self.sort_equation(self.tab)
 
     def get_max_power_equation(self, tab):
-        return (tab[len(tab) - 1].getPower())
+        l = len(tab)
+        if l == 0:
+            return (0)
+        return (tab[l - 1].getPower())
 
 
-    def solve(self, tab):
-        print("hellow")
+    def solve_second(self, tab):
+        """ 
+            aX2 + bX + c = 0
+            faire attention quand b == 0 ou/et c == 0
+        """
+        print("hellow second")
+        for i in tab:
+            print(i.tostring()) 
+    
+
+    def solve_first(self, tab):
+        """ 
+            faire gaffe aX + b = 0   a ce que quand b == 0
+        """
+        print("hellow first dergree")
+        l = len(tab)
+        if (l == 1):
+            print(f"The solution is : 0")
+        else:
+            b = tab[0].getWeight()
+            a = tab[1].getWeight()
+            print(f"The solution is : {-b / a}")
