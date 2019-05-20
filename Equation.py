@@ -1,5 +1,6 @@
 class Equation:
 
+
     def __init__(self, weight, power):
         self.weight = int(weight)
         self.power = int(power)
@@ -34,7 +35,7 @@ class Equation:
         format expression [+|-|""][0-9*][*X[^[0-9*]]]
         """
         str_val = str_val.replace(" ", "").replace("\t", "").replace("\n", "").replace("+", " +").replace("-",
-                                                                                                          " -").replace(
+                " -").replace(
             "=", " = ")
         expres = str_val.split("=")
         index = 0
@@ -65,17 +66,13 @@ class Equation:
         if index == len_elem and e[index - 1] == ".":
             print(f"Error format [{e}]")
             return None
-
         try:
             if (len(e) == 1):
                 poid_x = float(e[:index])
             else:
-            #regler probleme   +X^2
-
                 if (index == len(e)):
                     poid_x = float(e[:index])
                 elif e[index] == "X":
-#                    print(f"{e}   index {index} len {len(e)}  e[index]  {e[index]}")
                     if (e[0] == '+' or e[0] == '-') and e[1] == 'X':
                         poid_x = 1
                     elif e[0] == 'X':
@@ -117,10 +114,6 @@ class Equation:
             else:
                 print(f"Error format: The expression is not well formatted in element [{e}]")
                 return None
-
-
- #       print(f"resultat     [poid {poid_x}  power {power}]")
-
         elem = Equation(int(poid_x), int(power))
         return elem
 
@@ -136,6 +129,7 @@ class Equation:
             else:
                 i += 1
         return tab
+
 
     def leftPart(self, expression, dico):
         """
@@ -200,8 +194,5 @@ class Equation:
             v = int(val)
             if v != 0:
                 tab.append(Equation(v, c))
-#        for e in tab:
-#            print(e.tostring())
-
         self.tab = self.sort_equation(tab)
         self.print_min_expression(self.tab)
