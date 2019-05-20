@@ -25,12 +25,15 @@ def run(str_test):
     elif power_max == 0:
         print("All the X ∈ ℝ are the sollution !!") 
 
-
-
 if __name__ == "__main__":
     #str_test = "8 * X^0 - 6 * X^1 + 0 * X^2 - 5.6 * X^3 = 3 * X^0"
     #str_test = "5 * X^0 + 4 * X^1 - 9.3 * X^3 = 1 * X^0"
-    str_test = "4X +  5"
+    #str_test = "4X2 + 5X -2"
+    #str_test = "X2 + 4 + 5X "
+    
+    #str_test = "5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0"
+    #str_test = "4X2 + 4X +1 = 0 "
+    str_test = "3X2 +5X + 7 = 0"
     size = len(str_test .split("="))
     if size == 2:
         run(str_test)
@@ -45,15 +48,6 @@ if __name__ == "__main__":
     else:
         print("Error, multiple '=' found in the expression please check the expression and retry\nCiao")
         exit(0)
-
-
-
-
-
-
-
-
-
 
 #    str_test = " -115 * X^5  + 7 -4 + 8*X +  5   *    X ^  0      + 4 *     X  ^1  -   \t 9.3 * X^2 = +1 * X^0  "
 #    str_test = " -4 + 8*X +  5   *    X ^  0      + 4 *     X  ^1  -   \t 9.3 * X^2  +1 * X^0  "

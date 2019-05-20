@@ -1,3 +1,5 @@
+from math import *
+
 class Equation:
 
 
@@ -206,16 +208,36 @@ class Equation:
             aX2 + bX + c = 0
             faire attention quand b == 0 ou/et c == 0
         """
-        print("hellow second")
-        for i in tab:
-            print(i.tostring()) 
-    
+        b = 0
+        c = 0
+        for e in tab:
+            if (e.getPower() == 2):
+                a = e.getWeight()
+            elif (e.getPower() == 1):
+                b = e.getWeight()
+            elif (e.getPower() == 0):
+                c = e.getWeight()
+        delta = (b * b) - (4 * a * c)
+        print(f"[a == {a}]  [b == {b}]  [c == {c}]  [delta == {delta}]")
+        if (delta > 0):
+            print(f"Discriminant is strictly positive, the two solutions are:")
+            val1 = (-b - sqrt(delta)) / (2 *a)
+            val2 = (-b + sqrt(delta)) / (2 *a)
+            print(f"x1 = {val1}")
+            print(f"x2 = {val2}")
+        elif delta == 0:
+            print(f"Discriminant is Null, the solution is:")
+            val1 = (-b - sqrt(delta)) / (2 *a)
+            print(f"x = {val1}")
+        else:
+            print("Ther's no solution in ℝ")
+
+
 
     def solve_first(self, tab):
         """ 
             faire gaffe aX + b = 0   a ce que quand b == 0
         """
-        print("hellow first dergree")
         l = len(tab)
         if (l == 1):
             print(f"The solution is : 0")
