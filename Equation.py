@@ -2,7 +2,7 @@ class Equation:
 
 
     def __init__(self, weight, power):
-        self.weight = int(weight)
+        self.weight = float(weight)
         self.power = int(power)
         self.dic = dict()
         self.tab = []
@@ -61,7 +61,7 @@ class Equation:
                 else:
                     poid_x = 1
                 power = 1
-                elem = Equation(int(poid_x), int(power))
+                elem = Equation(float(poid_x), int(power))
                 return elem
         if index == len_elem and e[index - 1] == ".":
             print(f"Error format [{e}]")
@@ -114,7 +114,7 @@ class Equation:
             else:
                 print(f"Error format: The expression is not well formatted in element [{e}]")
                 return None
-        elem = Equation(int(poid_x), int(power))
+        elem = Equation(float(poid_x), int(power))
         return elem
 
 
@@ -163,7 +163,7 @@ class Equation:
                 exit(-1)
 
 
-    def print_min_expression(self, tab):
+    def get_min_expression(self, tab):
         ret = ""
         i = 0
         l = len(tab)
@@ -178,21 +178,25 @@ class Equation:
             ret += f"X^{e.getPower()}"
             i += 1
         ret += f" = 0"
-        print(ret)
+        return ret
 
 
     def minimize_expression(self, expression):
         """
             extract information in the expression and minimize it
         """
-        ## tout mettre dans un tableux puis le triee et le mettre dans dico
         self.leftPart(expression[0], self.dic)
         self.rightPart(expression[1], self.dic)
-        tab = []
         for clef, val in self.dic.items():
             c = int(clef)
-            v = int(val)
+            v = float(val)
             if v != 0:
-                tab.append(Equation(v, c))
-        self.tab = self.sort_equation(tab)
-        self.print_min_expression(self.tab)
+                self.tab.append(Equation(v, c))
+        return self.sort_equation(self.tab)
+
+    def get_max_power_equation(self, tab):
+        return (tab[len(tab) - 1].getPower())
+
+
+    def solve(self, tab):
+        print("hellow")
