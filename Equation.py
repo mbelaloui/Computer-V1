@@ -27,7 +27,7 @@ class Equation:
 
 
     def tostring(self):
-        return(f"weight {self.weight} power {self.power}")
+        return("weight {0} power {1}".format(self.weaight, self.power))
 
 
     def prepare_expression(self, str_val):
@@ -66,7 +66,7 @@ class Equation:
                 elem = Equation(float(poid_x), int(power))
                 return elem
         if index == len_elem and e[index - 1] == ".":
-            print(f"Error format [{e}]")
+            print("Error format [{0}]".format(e))
             return None
         try:
             if (len(e) == 1):
@@ -84,7 +84,7 @@ class Equation:
                 else:
                     poid_x = float(e[:index])
         except ValueError:
-            print(f"Error format : [{e}]")
+            print("Error format [{0}]".format(e))
             return None
         power = 0
         if index < len_elem:
@@ -97,24 +97,24 @@ class Equation:
                         if not e[index].isdigit():
                             index += 1
                         if index == len_elem:
-                            print(f"Error format : the power of the unknown element is not indicated : [{e}]")
+                            print("Error format : the power of the unknown element is not indicated : [{0}]".format(e))
                             return None
                         else:
                             power = e[index:]
                             if not power.isdigit():
                                 print(
-                                    f"Error format : the power of the unknown element is not well formatted: [{e}] int expected")
+                                    "Error format : the power of the unknown element is not well formatted: [{0}] int expected".format(e))
                                 return None
                     elif index == len_elem:
                         power = 1
                     else:
-                        print(f"Error format : the element [{e}] is not well formatted")
+                        print("Error format : the element [{0}] is not well formatted".format(e))
                         return None
                 else:
-                    print(f"Error format: The expression is not well formatted in element [{e}]")
+                    print("Error format: The expression is not well formatted in element [{0}]".format(e))
                     return None
             else:
-                print(f"Error format: The expression is not well formatted in element [{e}]")
+                print("Error format: The expression is not well formatted in element [{0}]".format(e))
                 return None
         elem = Equation(float(poid_x), int(power))
         return elem
@@ -172,14 +172,14 @@ class Equation:
         for e in tab:
             if not( i == l or i == 0):
                 if (e.getWeight() > 0) :
-                    ret += f" +"
+                    ret += " +"
                 else:
-                    ret += f" "
+                    ret += " "
             if e.getWeight() != 1:
-                ret += f"{e.getWeight()}"
-            ret += f"X^{e.getPower()}"
+                ret += "{0}".format(e.getWeight())
+            ret += "X^{0}".format(e.getPower())
             i += 1
-        ret += f" = 0"
+        ret += " = 0"
         return ret
 
 
@@ -218,17 +218,17 @@ class Equation:
             elif (e.getPower() == 0):
                 c = e.getWeight()
         delta = (b * b) - (4 * a * c)
-        print(f"[a == {a}]  [b == {b}]  [c == {c}]  [delta == {delta}]")
+        print("[a == {0}]  [b == {1}]  [c == {2}]  [delta == {3}]".format(a, b, c, delta))
         if (delta > 0):
-            print(f"Discriminant is strictly positive, the two solutions are:")
+            print("Discriminant is strictly positive, the two solutions are:")
             val1 = (-b - sqrt(delta)) / (2 *a)
             val2 = (-b + sqrt(delta)) / (2 *a)
-            print(f"x1 = {val1}")
-            print(f"x2 = {val2}")
+            print("x1 = {0}".format(val1))
+            print("x2 = {0}".format(val2))
         elif delta == 0:
-            print(f"Discriminant is Null, the solution is:")
+            print("Discriminant is Null, the solution is:")
             val1 = (-b - sqrt(delta)) / (2 *a)
-            print(f"x = {val1}")
+            print("x = {0}".format(val1))
         else:
             print("Ther's no solution in ℝ")
 
@@ -240,8 +240,8 @@ class Equation:
         """
         l = len(tab)
         if (l == 1):
-            print(f"The solution is : 0")
+            print("The solution is : 0")
         else:
             b = tab[0].getWeight()
             a = tab[1].getWeight()
-            print(f"The solution is : {-b / a}")
+            print("The solution is : {0}".format(-b / a))
