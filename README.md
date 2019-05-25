@@ -24,4 +24,4 @@ The main part of the project is the passing part which is more flexible than the
 	solving polynomial equation of degree less than or equal to 3.
 	
 ### Python Version
-	3.5/3.7
+	python3.5/python3.7
