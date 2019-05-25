@@ -20,5 +20,5 @@ The main part of the project is the passing part which is more flexible than the
 
 ```
 
-### Bonus to complete [Coverage Status](http://img.shields.io/coveralls/badges/badgerbadgerbadger.svg?style=flat-square)](https://coveralls.io/r/badges/badgerbadgerbadger)In progress
+### Bonus to complete [Coverage Status](In progress)
 	solving polynomial equation of degree less than or equal to 3.
