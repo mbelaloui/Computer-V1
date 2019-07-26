@@ -25,6 +25,7 @@ print("------- voir si le degre de l'eqaution < 3 si oui resoudre l'equation si 
         print("All the X ∈ ℝ are the sollution !!") 
 
 if __name__ == "__main__":
+    print ("Je dois reparer les caracteres non ascii avant de push")
     if len(sys.argv) is 2:
         str_test = sys.argv[1]
         size = len(str_test .split("="))

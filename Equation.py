@@ -202,7 +202,15 @@ class Equation:
             return (0)
         return (tab[l - 1].getPower())
 
-
+    def solve_neg_delta(self, a, b, delta):
+        r = sqrt(delta)
+        if (r * r) == delta :
+            print("x1 = (-{0} - i * {1})/ {2}  ".format(b, r, 2 * a))
+            print("x2 = (-{0} + i * {1})/ {2}  ".format(b, r, 2 * a))
+        else:
+            print("x1 = (-{0} - i * √ {1})/ {2}  ".format(b, delta, 2 * a))
+            print("x2 = (-{0} + i * √ {1})/ {2}  ".format(b, delta, 2 * a))
+       
     def solve_second(self, tab):
         """ 
             aX2 + bX + c = 0
@@ -231,7 +239,13 @@ class Equation:
             print("x = {0}".format(val1))
         else:
             print("Ther's no solution in ℝ")
-
+            print("Do you want to solve it ?  Y/y to continue other to stop")
+            if  input().upper() == "Y":
+                self.solve_neg_delta(a, b, -delta)
+            else:
+                print("Ciao")
+                exit(0)
+                                                                                            
 
 
     def solve_first(self, tab):
