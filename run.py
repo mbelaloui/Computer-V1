@@ -9,26 +9,31 @@ print("------- voir si le degre de l'eqaution < 3 si oui resoudre l'equation si 
     """
     temp = Equation(0, 0)
     expression = temp.prepare_expression(str_test)
-    expression_minim_tab = temp.minimize_expression(expression)
-    min_equation = temp.get_min_expression(expression_minim_tab)
-    power_max = temp.get_max_power_equation(expression_minim_tab)
-    print("Reduced form : {0}".format(min_equation))
-    print("Polynomial degree : {0}".format(power_max))
-    if (power_max > 2):
-        print("The Polynomial degree is stricly greater than 2, I can't solve")
-        exit(0)
-    elif power_max == 2:
-        temp.solve_second(expression_minim_tab)
-    elif power_max == 1:
-        temp.solve_first(expression_minim_tab)
-    elif power_max == 0:
-        print("All the X ∈ ℝ are the sollution !!") 
+    if (len(expression[0]) and len(expression[1])):
+        expression_minim_tab = temp.minimize_expression(expression)
+        min_equation = temp.get_min_expression(expression_minim_tab)
+        power_max = temp.get_max_power_equation(expression_minim_tab)
+        print("Reduced form : {0}".format(min_equation))
+        print("Polynomial degree : {0}".format(power_max))
+        if (power_max > 2):
+            print("The Polynomial degree is stricly greater than 2, I can't solve")
+            exit(0)
+        elif power_max == 2:
+            temp.solve_second(expression_minim_tab)
+        elif power_max == 1:
+            temp.solve_first(expression_minim_tab)
+        elif power_max == 0:
+            if expression_minim_tab:
+                print("There's no solution !!")
+            else:
+                print("All the X ∈ ℝ are the sollution !!") 
+    else:
+        print("Wrong format: Usage Python3 '[aX2 + bX + c = 0]' / a,b,c are double ")
 
 if __name__ == "__main__":
-    print ("Je dois reparer les caracteres non ascii avant de push")
-    if len(sys.argv) is 2:
+    if len(sys.argv) is 2 :
         str_test = sys.argv[1]
-        size = len(str_test .split("="))
+        size = len(str_test.split("="))
         if size == 2:
             run(str_test)
         elif size == 1:
@@ -46,7 +51,7 @@ if __name__ == "__main__":
         print("Wrong format: Usage Python3 '[aX2 + bX + c = 0]' / a,b,c are double ")
 
 
-
+#Str for test : 
 #str_test = "3X2 +5X + 7 = 0"
 #str_test = "8 * X^0 - 6 * X^1 + 0 * X^2 - 5.6 * X^3 = 3 * X^0"
 #str_test = "5 * X^0 + 4 * X^1 - 9.3 * X^3 = 1 * X^0"

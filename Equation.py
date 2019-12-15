@@ -1,4 +1,4 @@
-from math import *
+
 
 class Equation:
 
@@ -203,7 +203,7 @@ class Equation:
         return (tab[l - 1].getPower())
 
     def solve_neg_delta(self, a, b, delta):
-        r = sqrt(delta)
+        r = delta ** 0.5
         if (r * r) == delta :
             print("x1 = (-{0} - i * {1})/ {2}  ".format(b, r, 2 * a))
             print("x2 = (-{0} + i * {1})/ {2}  ".format(b, r, 2 * a))
@@ -229,13 +229,13 @@ class Equation:
         print("[a == {0}]  [b == {1}]  [c == {2}]  [delta == {3}]".format(a, b, c, delta))
         if (delta > 0):
             print("Discriminant is strictly positive, the two solutions are:")
-            val1 = (-b - sqrt(delta)) / (2 *a)
-            val2 = (-b + sqrt(delta)) / (2 *a)
+            val1 = (-b - (delta ** 0.5)) / (2 *a)
+            val2 = (-b + (delta ** 0.5)) / (2 *a)
             print("x1 = {0}".format(val1))
             print("x2 = {0}".format(val2))
         elif delta == 0:
             print("Discriminant is Null, the solution is:")
-            val1 = (-b - sqrt(delta)) / (2 *a)
+            val1 = (-b - (delta ** 0.5)) / (2 *a)
             print("x = {0}".format(val1))
         else:
             print("Ther's no solution in ℝ")
